@@ -54,7 +54,8 @@
             display: flex;
             justify-content: space-around;
         }
-        .s2 .row1 button:first-child{flex:75%;}
+        .s2 .row1 button:first-child{flex:37.5%;}
+        .s2 .row1 button:nth-child(2){flex:37.5%;}
         .s2 .row1 button:last-child{flex:25%;}
         .s2 .row2 button,
         .s2 .row3 button,
@@ -66,10 +67,11 @@
 </head>
 <body>
     <main class="calc">
-        <section class="s1" id="display"></section>
+        <section class="s1" id="display">0</section>
         <section class="s2 btns">
             <div class="row1 row">
-                <button id="clearall">C</button>
+                <button id="clearall">AC</button>
+                <button id="clear">C</button>
                 <button class="symb" id="divd">&#247;</button>
             </div>
             <div class="row2 row">
