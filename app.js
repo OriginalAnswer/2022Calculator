@@ -34,6 +34,7 @@ btns.map( b => {
             default:
                 if(dp.innerText === '0'){
                     dp.innerText = '';
+                    dp.innerText += e.target.innerText;
                 } else {
                     dp.innerText += e.target.innerText;
                 }
