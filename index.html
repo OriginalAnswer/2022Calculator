@@ -9,6 +9,7 @@
         *{margin: 0;padding: 0;box-sizing: border-box;}
         button{border: none;color:inherit; outline: none;}
         button:active{transform: scale(0.9);}
+        .hidden{display: none;}
         body{
             width: 100vw;height: 100vh;
             background: #e0e0e0;
@@ -67,6 +68,7 @@
 </head>
 <body>
     <main class="calc">
+        <div class="hidden" id="displayhidden"></div>
         <section class="s1" id="display">0</section>
         <section class="s2 btns">
             <div class="row1 row">
