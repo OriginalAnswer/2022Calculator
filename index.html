@@ -6,34 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2022-Calculator</title>
     <style>
+        :root{
+            --clr-sym: rgb(255,99,71);
+            --clr-txt:rgb(146, 146, 146);
+            --clr-bg:#e0e0e0;
+            --clr-dp-bg:#eeeeee;
+            --clr-dp-txt:rgb(146, 146, 146);
+            --clr-sun:rgb(231, 85, 0);
+            --clr-moon:rgb(255, 232, 29);
+            --clr-bg-mode:#e0e0e0;
+            --box-shadow:18px 18px 36px #cecece, -18px -18px 36px #f2f2f2;
+            --box-shadow-inside-clr-1:#cecece;
+            --box-shadow-inside-clr-2:#f2f2f28c;
+        }
+        .darkmode{
+            --clr-sym: rgb(255, 38, 0);
+            --clr-txt:rgb(251, 248, 252);
+            --clr-bg:#242424;
+            --clr-dp-bg:#80a588;
+            --clr-dp-txt:rgb(39, 39, 39);
+            --box-shadow:18px 18px 36px #424242, -18px -18px 36px #0c0c0c;
+            --box-shadow-inside-clr-1:rgba(0,0,0,0.4);
+            --box-shadow-inside-clr-2:#4e4e4e8c;
+        }
+
         *{margin: 0;padding: 0;box-sizing: border-box;}
         button{border: none;color:inherit; outline: none;}
         button:active{transform: scale(0.9);}
         .hidden{display: none;}
         body{
             width: 100vw;height: 100vh;
-            background: #e0e0e0;
-            color: rgb(146, 146, 146);
+            background: var(--clr-bg);
+            color: var(--clr-txt);
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .calc .symb{color: tomato;}
+        .label{
+            transform: translateX(50%) translateY(-120%) scale(.6);
+            position: absolute;right: 13%;top: 0;
+            display: flex; justify-content: space-around; align-items: center;
+            width: 65px;height: 35px;
+            background-color: var(--clr-bg);
+            border-radius: 20px;cursor: pointer;
+            box-shadow: inset 5px 5px 5px var(--box-shadow-inside-clr-1),inset -5px -5px 8px var(--box-shadow-inside-clr-2),var(--box-shadow);}
+
+        .checkbox:checked + .label #ball{left: 0;}
+        #ball{
+            box-shadow: inset 2px 1px 5px rgba(132,139,200,0.18),inset -5px -5px 8px #ffffff;;
+            transition: left .5s ease-in-out;
+            left: 50%; margin: 0 4px;  
+            width: 40%;height: 75%; border-radius: 15px;
+            position: absolute;background-color: #fff;}
+
+        .sun{color: var(--clr-sun);}
+        .moon{color: var(--clr-moon);}
+
+
+
+
+        .symb{color: tomato;}
         .calc{
+            color: var(--clr-txt);
+            position: relative;
             padding: 20px;
             width: 300px;
             border-radius: 25px;
-            background: #e0e0e0;
-            box-shadow:  18px 18px 36px #cecece, -18px -18px 36px #f2f2f2;
+            background: var(--clr-bg);
+            box-shadow:  var(--box-shadow);
             display: flex;flex-direction: column;
         }
         .s1{
+            color: var(--clr-dp-txt);
             width: 100%;height: 70px;
             margin-bottom: 10px;
             padding: 10px;
             border-radius: 15px;
-            background: #e0e0e0;
-            box-shadow: inset 5px 5px 5px #cecece8c,inset -5px -5px 8px #f2f2f28c;
+            background-color: var(--clr-dp-bg);
+            box-shadow: inset 5px 5px 5px var(--box-shadow-inside-clr-1),inset -5px -5px 8px var(--box-shadow-inside-clr-2);
             display: flex;
             flex-direction: column-reverse;
             align-items: flex-end;
@@ -46,9 +96,9 @@
         .s2 button{
             margin: 5px;
             height: 50px;
-            background: #e0e0e0;
+            background: var(--clr-bg);
             border-radius: 10px;
-            box-shadow:  5px 5px 8px #cecece8c, -5px -5px 8px #f2f2f28c;
+            box-shadow:  5px 5px 8px var(--box-shadow-inside-clr-1), -5px -5px 8px var(--box-shadow-inside-clr-2);
         }
         .s2 .row{
             width: 100%;
@@ -69,6 +119,12 @@
 <body>
     <!-- <input type="color"> -->
     <main class="calc">
+        <input type="checkbox" id="checkbox" class="checkbox hidden">
+        <label for="checkbox" class="label" onclick="darkmode()">
+                <div class="ball" id="ball"></div>
+                <span class="sun"><i class="fas fa-sun"></i></span>
+                <span class="moon"><i class="fas fa-moon"></i></span>
+        </label>
         <div class="hidden" id="displayhidden"></div>
         <section class="s1" id="display">0</section>
         <section class="s2 btns">
@@ -104,5 +160,6 @@
     </main>
 
         <script src="app.js"></script>
+        <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
 </body>
 </html>

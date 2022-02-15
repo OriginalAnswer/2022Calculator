@@ -48,3 +48,9 @@ btns.map( b => {
 // 푸쉬한 배열에 .맵
 
 // 지우기 표시하기 결과내기
+
+
+function darkmode(){
+    const b = document.body;
+    b.classList.toggle('darkmode')
+}
