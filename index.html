@@ -30,7 +30,11 @@
             --box-shadow-inside-clr-2:#4e4e4e8c;
         }
 
-        *{margin: 0;padding: 0;box-sizing: border-box;}
+        *{margin: 0;padding: 0;box-sizing: border-box;
+            &::-webkit-scrollbar{
+                display: none;
+              }
+        }
         button{border: none;color:inherit; outline: none;}
         button:active{transform: scale(0.9);}
         .hidden{display: none;}
